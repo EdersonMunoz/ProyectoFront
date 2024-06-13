@@ -51,7 +51,7 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
       javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))
     );
 
-    jLabelAuthor.setText("Desarrollado por inform�tica III");
+    jLabelAuthor.setText("Desarrollado por informatica III");
 
     javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(
       jPanelInferior
@@ -175,7 +175,7 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
 
     jLabelCodigo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabelCodigo.setForeground(new java.awt.Color(0, 0, 102));
-    jLabelCodigo.setText("C�digo:");
+    jLabelCodigo.setText("Codigo:");
     jPanelCentral.add(
       jLabelCodigo,
       new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, 20)
@@ -255,8 +255,18 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
         "Comida registrada"
       );
       System.out.println(objComidaCreado);
+      limpiarCampos();
     }
   } //GEN-LAST:event_jButtonRegistrarActionPerformed
+
+  public void limpiarCampos() {
+    jTextFieldNombre.setText("");
+    jTextFieldCodigo.setText("");
+    jTextFieldRestaurante.setText("");
+    jTextFieldTipoComida.setText("");
+    jTextFieldCantidadIngredientes.setText("");
+    jTextFieldPrecio.setText("");
+  }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButtonRegistrar;

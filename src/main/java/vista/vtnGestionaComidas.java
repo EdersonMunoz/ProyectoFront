@@ -239,7 +239,7 @@ public class vtnGestionaComidas extends javax.swing.JInternalFrame {
     private void elimininarComida(String idComida) {
         try {
             if (Utilidades.mensajeConfirmacion(
-                    "� Estas seguro de que quieres eliminar la comida con el codigo "
+                    "¿ Estas seguro de que quieres eliminar la comida con el codigo "
                     + idComida
                     + " ?",
                     "Confirmacion"
