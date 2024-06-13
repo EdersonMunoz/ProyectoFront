@@ -41,7 +41,7 @@ public class ComidaServices {
 
   public Comida registrarComida(Comida objComida) {
     Comida objComidaResponse = null;
-    WebTarget target = client.target(this.endPoint);
+    WebTarget target = client.target(this.endPoint + "/save");
     Entity<Comida> data = Entity.entity(
       objComida,
       MediaType.APPLICATION_JSON_TYPE

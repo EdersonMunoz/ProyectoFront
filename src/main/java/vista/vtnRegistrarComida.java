@@ -27,17 +27,23 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
     jPanelInferior = new javax.swing.JPanel();
-    jLabelDesarrolladoPor = new javax.swing.JLabel();
+    jLabelAuthor = new javax.swing.JLabel();
     jPanelSuperior = new javax.swing.JPanel();
-    jLabelTituloJForm = new javax.swing.JLabel();
+    jLabelTituloRegistrarComida = new javax.swing.JLabel();
     jPanelCentral = new javax.swing.JPanel();
-    jLabelCodigo = new javax.swing.JLabel();
-    jLabelTipo = new javax.swing.JLabel();
+    jLabelNombre = new javax.swing.JLabel();
     jTextFieldNombre = new javax.swing.JTextField();
-    jLabelTitulo = new javax.swing.JLabel();
-    jTextFieldCodigo = new javax.swing.JTextField();
     jButtonRegistrar = new javax.swing.JButton();
+    jTextFieldCodigo = new javax.swing.JTextField();
+    jTextFieldTipoComida = new javax.swing.JTextField();
     jTextFieldRestaurante = new javax.swing.JTextField();
+    jTextFieldCantidadIngredientes = new javax.swing.JTextField();
+    jTextFieldPrecio = new javax.swing.JTextField();
+    jLabelCodigo = new javax.swing.JLabel();
+    jLabelTipoComida = new javax.swing.JLabel();
+    jLabelRestaurante = new javax.swing.JLabel();
+    jLabelCantidadIngredientes = new javax.swing.JLabel();
+    jLabelPrecio = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,7 +51,7 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
       javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))
     );
 
-    jLabelDesarrolladoPor.setText("Desarrollado por inform�tica III");
+    jLabelAuthor.setText("Desarrollado por inform�tica III");
 
     javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(
       jPanelInferior
@@ -57,8 +63,8 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
         .addGroup(
           jPanelInferiorLayout
             .createSequentialGroup()
-            .addGap(194, 194, 194)
-            .addComponent(jLabelDesarrolladoPor)
+            .addContainerGap(194, Short.MAX_VALUE)
+            .addComponent(jLabelAuthor)
             .addContainerGap(196, Short.MAX_VALUE)
         )
     );
@@ -69,9 +75,9 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
           javax.swing.GroupLayout.Alignment.TRAILING,
           jPanelInferiorLayout
             .createSequentialGroup()
-            .addContainerGap(48, Short.MAX_VALUE)
-            .addComponent(jLabelDesarrolladoPor)
-            .addGap(38, 38, 38)
+            .addContainerGap(20, Short.MAX_VALUE)
+            .addComponent(jLabelAuthor)
+            .addGap(20, 20, 20)
         )
     );
 
@@ -81,9 +87,9 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
       javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))
     );
 
-    jLabelTituloJForm.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-    jLabelTituloJForm.setForeground(new java.awt.Color(0, 51, 153));
-    jLabelTituloJForm.setText("Registrar comida");
+    jLabelTituloRegistrarComida.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+    jLabelTituloRegistrarComida.setForeground(new java.awt.Color(0, 51, 153));
+    jLabelTituloRegistrarComida.setText("Registrar comida");
 
     javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(
       jPanelSuperior
@@ -93,12 +99,11 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
       jPanelSuperiorLayout
         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(
-          javax.swing.GroupLayout.Alignment.TRAILING,
           jPanelSuperiorLayout
             .createSequentialGroup()
-            .addContainerGap(188, Short.MAX_VALUE)
-            .addComponent(jLabelTituloJForm)
-            .addGap(203, 203, 203)
+            .addGap(199, 199, 199)
+            .addComponent(jLabelTituloRegistrarComida)
+            .addContainerGap(199, Short.MAX_VALUE)
         )
     );
     jPanelSuperiorLayout.setVerticalGroup(
@@ -107,9 +112,9 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
         .addGroup(
           jPanelSuperiorLayout
             .createSequentialGroup()
-            .addGap(27, 27, 27)
-            .addComponent(jLabelTituloJForm)
-            .addContainerGap(59, Short.MAX_VALUE)
+            .addGap(28, 28, 28)
+            .addComponent(jLabelTituloRegistrarComida)
+            .addContainerGap(32, Short.MAX_VALUE)
         )
     );
 
@@ -120,36 +125,16 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
     );
     jPanelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-    jLabelCodigo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-    jLabelCodigo.setForeground(new java.awt.Color(0, 0, 102));
-    jLabelCodigo.setText("Nombres:");
+    jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelNombre.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelNombre.setText("Nombre:");
     jPanelCentral.add(
-      jLabelCodigo,
+      jLabelNombre,
       new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 31, -1, -1)
-    );
-
-    jLabelTipo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-    jLabelTipo.setForeground(new java.awt.Color(0, 0, 102));
-    jLabelTipo.setText("Correo:");
-    jPanelCentral.add(
-      jLabelTipo,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1)
     );
     jPanelCentral.add(
       jTextFieldNombre,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 130, -1)
-    );
-
-    jLabelTitulo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-    jLabelTitulo.setForeground(new java.awt.Color(0, 0, 102));
-    jLabelTitulo.setText("Apellidos:");
-    jPanelCentral.add(
-      jLabelTitulo,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 61, -1, -1)
-    );
-    jPanelCentral.add(
-      jTextFieldCodigo,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 58, 130, -1)
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 260, -1)
     );
 
     jButtonRegistrar.setIcon(
@@ -165,11 +150,67 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
     );
     jPanelCentral.add(
       jButtonRegistrar,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, -1, -1)
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 160, -1)
+    );
+    jPanelCentral.add(
+      jTextFieldCodigo,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 260, -1)
+    );
+    jPanelCentral.add(
+      jTextFieldTipoComida,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 260, -1)
     );
     jPanelCentral.add(
       jTextFieldRestaurante,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 130, -1)
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 260, -1)
+    );
+    jPanelCentral.add(
+      jTextFieldCantidadIngredientes,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 260, -1)
+    );
+    jPanelCentral.add(
+      jTextFieldPrecio,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 260, -1)
+    );
+
+    jLabelCodigo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelCodigo.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelCodigo.setText("C�digo:");
+    jPanelCentral.add(
+      jLabelCodigo,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, 20)
+    );
+
+    jLabelTipoComida.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelTipoComida.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelTipoComida.setText("Tipo de comida:");
+    jPanelCentral.add(
+      jLabelTipoComida,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1)
+    );
+
+    jLabelRestaurante.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelRestaurante.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelRestaurante.setText("Restaurante:");
+    jPanelCentral.add(
+      jLabelRestaurante,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1)
+    );
+
+    jLabelCantidadIngredientes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelCantidadIngredientes.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelCantidadIngredientes.setText("Cantidad de ingredientes:");
+    jPanelCentral.add(
+      jLabelCantidadIngredientes,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1)
+    );
+
+    jLabelPrecio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelPrecio.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelPrecio.setText("Precio:");
+    jPanelCentral.add(
+      jLabelPrecio,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1)
     );
 
     getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
@@ -178,29 +219,21 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
   } // </editor-fold>//GEN-END:initComponents
 
   private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButtonRegistrarActionPerformed
-    String nombre, codigo, restaurante, tipoComida;
-    Integer idComida, cantidadIngredientes;
+    String nombre, codigo, tipoComida, restaurante;
+    Integer cantidadIngredientes;
     Float precio = 0.0f;
 
-    nombre = jTextFieldNombre.getText();
-    codigo = jTextFieldCodigo.getText();
-    restaurante = jTextFieldRestaurante.getText();
-    tipoComida = jTextFieldRestaurante.getText(); // Corregir
-
     // Se capturan los datos desde los campos de texto del formulario
-
-    // NOTA: Generar jTextFields para los campos faltantes (Corregir)
-    String idComidaTmp = jTextFieldCodigo.getText();
-    idComida = Integer.parseInt(idComidaTmp);
-    String cantidadIngredientesTmp = jTextFieldCodigo.getText();
-    cantidadIngredientes = Integer.parseInt(cantidadIngredientesTmp);
     nombre = jTextFieldNombre.getText();
     codigo = jTextFieldCodigo.getText();
     restaurante = jTextFieldRestaurante.getText();
-    tipoComida = jTextFieldRestaurante.getText();
+    tipoComida = jTextFieldTipoComida.getText();
+    cantidadIngredientes =
+      Integer.parseInt(jTextFieldCantidadIngredientes.getText());
+    precio = Float.parseFloat(jTextFieldPrecio.getText());
 
     Comida objComida = new Comida(
-      idComida,
+      1,
       restaurante,
       codigo,
       nombre,
@@ -211,31 +244,38 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
 
     if (this.objComidaServices.consultarSiExisteComida(codigo)) {
       Utilidades.mensajeError(
-        "Error, el correo del comida se encuentra registrado",
-        "Error al registrar el comida"
+        "Error, el codigo de la comida ya se encuentra registrado",
+        "Error al registrar la comida"
       );
     } else {
       Comida objComidaCreado =
         this.objComidaServices.registrarComida(objComida);
       Utilidades.mensajeExito(
-        "Comida registrado exitosmente",
-        "Comida registrado"
+        "Comida registrada exitosmente",
+        "Comida registrada"
       );
+      System.out.println(objComidaCreado);
     }
   } //GEN-LAST:event_jButtonRegistrarActionPerformed
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButtonRegistrar;
+  private javax.swing.JLabel jLabelAuthor;
+  private javax.swing.JLabel jLabelCantidadIngredientes;
   private javax.swing.JLabel jLabelCodigo;
-  private javax.swing.JLabel jLabelDesarrolladoPor;
-  private javax.swing.JLabel jLabelTipo;
-  private javax.swing.JLabel jLabelTitulo;
-  private javax.swing.JLabel jLabelTituloJForm;
+  private javax.swing.JLabel jLabelNombre;
+  private javax.swing.JLabel jLabelPrecio;
+  private javax.swing.JLabel jLabelRestaurante;
+  private javax.swing.JLabel jLabelTipoComida;
+  private javax.swing.JLabel jLabelTituloRegistrarComida;
   private javax.swing.JPanel jPanelCentral;
   private javax.swing.JPanel jPanelInferior;
   private javax.swing.JPanel jPanelSuperior;
+  private javax.swing.JTextField jTextFieldCantidadIngredientes;
   private javax.swing.JTextField jTextFieldCodigo;
-  private javax.swing.JTextField jTextFieldRestaurante;
   private javax.swing.JTextField jTextFieldNombre;
+  private javax.swing.JTextField jTextFieldPrecio;
+  private javax.swing.JTextField jTextFieldRestaurante;
+  private javax.swing.JTextField jTextFieldTipoComida;
   // End of variables declaration//GEN-END:variables
 }
