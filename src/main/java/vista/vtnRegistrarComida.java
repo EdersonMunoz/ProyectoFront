@@ -83,7 +83,7 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
 
     jLabelTituloJForm.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
     jLabelTituloJForm.setForeground(new java.awt.Color(0, 51, 153));
-    jLabelTituloJForm.setText("Registrar cliente");
+    jLabelTituloJForm.setText("Registrar comida");
 
     javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(
       jPanelSuperior
@@ -209,10 +209,10 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
       precio
     );
 
-    if (this.objComidaServices.consultarSiExisteComidaPorCorreo(restaurante)) {
+    if (this.objComidaServices.consultarSiExisteComida(codigo)) {
       Utilidades.mensajeError(
-        "Error, el correo del cliente se encuentra registrado",
-        "Error al registrar el cliente"
+        "Error, el correo del comida se encuentra registrado",
+        "Error al registrar el comida"
       );
     } else {
       Comida objComidaCreado =

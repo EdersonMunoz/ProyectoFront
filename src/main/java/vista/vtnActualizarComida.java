@@ -1,6 +1,5 @@
 package vista;
 
-import java.util.Date;
 import modelos.Comida;
 import servicios.ComidaServices;
 import utilidades.Utilidades;
@@ -13,23 +12,17 @@ public class vtnActualizarComida extends javax.swing.JFrame {
 
   private final ComidaServices objComidaServices;
   private Integer idComidaActual;
-  private String correoAnterior;
 
   public vtnActualizarComida(ComidaServices objComidaServices) {
     initComponents();
     this.objComidaServices = objComidaServices;
   }
 
-  public void actualizarFormularioComida(
-    Integer idComidaActual,
-    Comida objComida
-  ) {
-    this.idComidaActual = idComidaActual;
-    this.jTextFieldIdComida.setText(objComida.getIdComida() + "");
+  public void actualizarFormularioComida(Comida objComida) {
+    this.jTextFieldIdComida.setText(String.valueOf(objComida.getIdComida()));
     this.jTextFieldNombre.setText(objComida.getNombre());
-    // this.jTextFieldApellidos.setText(objComida.getApellido());
-    // this.jTextFieldCorreo.setText(objComida.getEmail());
-    // this.correoAnterior = objComida.getEmail();
+    this.jTextFieldCodigo.setText(objComida.getCodigo());
+    this.jTextFieldRestaurante.setText(objComida.getRestaurante());
   }
 
   /**
@@ -61,7 +54,7 @@ public class vtnActualizarComida extends javax.swing.JFrame {
       javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))
     );
 
-    jLabelDesarrolladoPor.setText("Desarrollado por inform�tica III");
+    jLabelDesarrolladoPor.setText("Desarrollado por informatica III");
 
     javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(
       jPanelInferior
@@ -99,7 +92,7 @@ public class vtnActualizarComida extends javax.swing.JFrame {
 
     jLabelTituloJForm.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
     jLabelTituloJForm.setForeground(new java.awt.Color(0, 51, 153));
-    jLabelTituloJForm.setText("Actualizar cliente");
+    jLabelTituloJForm.setText("Actualizar comida");
 
     javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(
       jPanelSuperior
@@ -236,17 +229,14 @@ public class vtnActualizarComida extends javax.swing.JFrame {
       precio
     );
 
-    if (
-      !this.correoAnterior.equals(restaurante) &&
-      this.objComidaServices.consultarSiExisteComidaPorCorreo(restaurante)
-    ) {
+    if (this.objComidaServices.consultarSiExisteComida(codigo)) {
       Utilidades.mensajeError(
-        "Error, el correo del cliente se encuentra registrado",
-        "Error al registrar el cliente"
+        "Error, el correo del comida se encuentra registrado",
+        "Error al registrar el comida"
       );
     } else {
       Comida objComidaCreado =
-        this.objComidaServices.actualizarComida(objComida, this.idComidaActual);
+        this.objComidaServices.actualizarComida(objComida);
       Utilidades.mensajeExito(
         "Comida actualizado exitosmente",
         "Comida actualizado"

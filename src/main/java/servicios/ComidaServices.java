@@ -30,63 +30,51 @@ public class ComidaServices {
     return listaComidas;
   }
 
-  public Comida consultarComida(Integer id) {
+  public Comida consultarComida(String codigo) {
     Comida objComida = null;
 
-    WebTarget target = client.target(this.endPoint + "/find/" + id);
+    WebTarget target = client.target(this.endPoint + "/find/" + codigo);
     objComida =
       target.request(MediaType.APPLICATION_JSON_TYPE).get(Comida.class);
     return objComida;
   }
 
-  public Comida registrarComida(Comida objComidaRegistar) {
-    Comida objComida = null;
+  public Comida registrarComida(Comida objComida) {
+    Comida objComidaResponse = null;
     WebTarget target = client.target(this.endPoint);
     Entity<Comida> data = Entity.entity(
-      objComidaRegistar,
+      objComida,
       MediaType.APPLICATION_JSON_TYPE
     );
-    objComida =
+    objComidaResponse =
       target.request(MediaType.APPLICATION_JSON_TYPE).post(data, Comida.class);
-    return objComida;
+    return objComidaResponse;
   }
 
-  public Comida actualizarComida(Comida objComidaActualizar, Integer id) {
-    Comida objComida = null;
-    WebTarget target = client.target(this.endPoint + "/" + id);
+  public Comida actualizarComida(Comida objComida) {
+    Comida objComidaResponse = null;
+    WebTarget target = client.target(this.endPoint + "/update");
     Entity<Comida> data = Entity.entity(
-      objComidaActualizar,
+      objComida,
       MediaType.APPLICATION_JSON_TYPE
     );
-    objComida =
+    objComidaResponse =
       target.request(MediaType.APPLICATION_JSON_TYPE).put(data, Comida.class);
 
-    return objComida;
+    return objComidaResponse;
   }
 
-  public Boolean eliminarComida(Integer id) {
+  public Boolean eliminarComida(String codigo) {
     Boolean bandera = false;
-    WebTarget target = client.target(this.endPoint + "/" + id);
+    WebTarget target = client.target(this.endPoint + "/delete/" + codigo);
     bandera =
       target.request(MediaType.APPLICATION_JSON_TYPE).delete(Boolean.class);
     return bandera;
   }
 
-  public Boolean consultarSiExisteComida(Integer id) {
+  public Boolean consultarSiExisteComida(String codigo) {
     Boolean bandera;
-    WebTarget target = client.target(
-      this.endPoint + "/consultarSiExiste/" + id
-    );
-    bandera =
-      target.request(MediaType.APPLICATION_JSON_TYPE).get(Boolean.class);
-    return bandera;
-  }
-
-  public Boolean consultarSiExisteComidaPorCorreo(String correo) {
-    Boolean bandera;
-    WebTarget target = client.target(
-      this.endPoint + "/consultarSiExistePorCorreo/" + correo
-    );
+    WebTarget target = client.target(this.endPoint + "/exist/" + codigo);
     bandera =
       target.request(MediaType.APPLICATION_JSON_TYPE).get(Boolean.class);
     return bandera;
