@@ -232,6 +232,7 @@ public class vtnGestionaComidas extends javax.swing.JInternalFrame {
         vtnActualizarComida vtnObjActualizarComida = new vtnActualizarComida(
                 this.objComidaServices
         );
+        vtnObjActualizarComida.cargarDatosIniciales();
         vtnObjActualizarComida.actualizarFormularioComida(objComida);
         vtnObjActualizarComida.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         vtnObjActualizarComida.setVisible(true);

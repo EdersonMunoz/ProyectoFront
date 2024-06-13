@@ -1,4 +1,5 @@
 servicios\ComidaServices$3.class
+vista\vtnActualizarComida$3.class
 vista\Render.class
 servicios\ComidaServices.class
 vista\VtnPrincipal$1.class
@@ -20,6 +21,7 @@ vista\VtnConsultarComida.class
 vista\vtnRegistrarComida$1.class
 servicios\ComidaServices$2.class
 test\Test.class
+vista\vtnActualizarComida$2.class
 vista\vtnActualizarComida$1.class
 vista\vtnRegistrarComida$3.class
 vista\VtnConsultarComida$1.class

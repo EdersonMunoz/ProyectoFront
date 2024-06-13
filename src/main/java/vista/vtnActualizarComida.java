@@ -1,6 +1,9 @@
 package vista;
 
+import java.util.ArrayList;
 import modelos.Comida;
+import modelos.Restaurante;
+import modelos.TipoComida;
 import servicios.ComidaServices;
 import utilidades.Utilidades;
 
@@ -11,6 +14,11 @@ import utilidades.Utilidades;
 public class vtnActualizarComida extends javax.swing.JFrame {
 
   private final ComidaServices objComidaServices;
+
+  private ArrayList<TipoComida> listTipoComida = new ArrayList<TipoComida>();
+  private ArrayList<Restaurante> listRestaurante = new ArrayList<Restaurante>();
+
+  private String tmpIdTipoComida = "";
 
   public vtnActualizarComida(ComidaServices objComidaServices) {
     initComponents();
@@ -36,8 +44,6 @@ public class vtnActualizarComida extends javax.swing.JFrame {
     jTextFieldNombre = new javax.swing.JTextField();
     jButtonActualizar = new javax.swing.JButton();
     jTextFieldCodigo = new javax.swing.JTextField();
-    jTextFieldTipoComida = new javax.swing.JTextField();
-    jTextFieldRestaurante = new javax.swing.JTextField();
     jTextFieldCantidadIngredientes = new javax.swing.JTextField();
     jTextFieldPrecio = new javax.swing.JTextField();
     jLabelCodigo = new javax.swing.JLabel();
@@ -45,6 +51,10 @@ public class vtnActualizarComida extends javax.swing.JFrame {
     jLabelRestaurante = new javax.swing.JLabel();
     jLabelCantidadIngredientes = new javax.swing.JLabel();
     jLabelPrecio = new javax.swing.JLabel();
+    jComboBoxRestaurante = new javax.swing.JComboBox<>();
+    jComboBoxTipoComida = new javax.swing.JComboBox<>();
+    jLabelSeleccionRestaurante = new javax.swing.JLabel();
+    jLabelSeleccionTipoComida = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,7 +62,7 @@ public class vtnActualizarComida extends javax.swing.JFrame {
       javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))
     );
 
-    jLabelAuthor.setText("Desarrollado por informatica III");
+    jLabelAuthor.setText("Desarrollado por inform�tica III");
 
     javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(
       jPanelInferior
@@ -64,9 +74,9 @@ public class vtnActualizarComida extends javax.swing.JFrame {
         .addGroup(
           jPanelInferiorLayout
             .createSequentialGroup()
-            .addContainerGap(194, Short.MAX_VALUE)
+            .addContainerGap(246, Short.MAX_VALUE)
             .addComponent(jLabelAuthor)
-            .addContainerGap(196, Short.MAX_VALUE)
+            .addContainerGap(247, Short.MAX_VALUE)
         )
     );
     jPanelInferiorLayout.setVerticalGroup(
@@ -94,11 +104,11 @@ public class vtnActualizarComida extends javax.swing.JFrame {
 
     jLabelTitleIdComida.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabelTitleIdComida.setForeground(new java.awt.Color(0, 0, 102));
-    jLabelTitleIdComida.setText("Id Comida: ");
+    jLabelTitleIdComida.setText("Id:");
 
     jLabelTitleResultadoIdComida.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabelTitleResultadoIdComida.setForeground(new java.awt.Color(0, 0, 102));
-    jLabelTitleResultadoIdComida.setText("ResultadoIdComida");
+    jLabelTitleResultadoIdComida.setText("ResultIdComida");
 
     javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(
       jPanelSuperior
@@ -110,7 +120,7 @@ public class vtnActualizarComida extends javax.swing.JFrame {
         .addGroup(
           jPanelSuperiorLayout
             .createSequentialGroup()
-            .addGap(190, 190, 190)
+            .addGap(199, 199, 199)
             .addGroup(
               jPanelSuperiorLayout
                 .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +135,7 @@ public class vtnActualizarComida extends javax.swing.JFrame {
                 )
                 .addComponent(jLabelTituloActualizarComida)
             )
-            .addContainerGap(164, Short.MAX_VALUE)
+            .addContainerGap(295, Short.MAX_VALUE)
         )
     );
     jPanelSuperiorLayout.setVerticalGroup(
@@ -134,7 +144,7 @@ public class vtnActualizarComida extends javax.swing.JFrame {
         .addGroup(
           jPanelSuperiorLayout
             .createSequentialGroup()
-            .addGap(12, 12, 12)
+            .addGap(28, 28, 28)
             .addComponent(jLabelTituloActualizarComida)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(
@@ -143,7 +153,7 @@ public class vtnActualizarComida extends javax.swing.JFrame {
                 .addComponent(jLabelTitleIdComida)
                 .addComponent(jLabelTitleResultadoIdComida)
             )
-            .addContainerGap(27, Short.MAX_VALUE)
+            .addContainerGap(11, Short.MAX_VALUE)
         )
     );
 
@@ -169,7 +179,7 @@ public class vtnActualizarComida extends javax.swing.JFrame {
     jButtonActualizar.setIcon(
       new javax.swing.ImageIcon(getClass().getResource("/recursos/grabar.png"))
     ); // NOI18N
-    jButtonActualizar.setText("Guardar");
+    jButtonActualizar.setText("Actualizar");
     jButtonActualizar.addActionListener(
       new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,19 +189,11 @@ public class vtnActualizarComida extends javax.swing.JFrame {
     );
     jPanelCentral.add(
       jButtonActualizar,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 160, -1)
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 160, -1)
     );
     jPanelCentral.add(
       jTextFieldCodigo,
       new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 260, -1)
-    );
-    jPanelCentral.add(
-      jTextFieldTipoComida,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 260, -1)
-    );
-    jPanelCentral.add(
-      jTextFieldRestaurante,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 260, -1)
     );
     jPanelCentral.add(
       jTextFieldCantidadIngredientes,
@@ -242,6 +244,43 @@ public class vtnActualizarComida extends javax.swing.JFrame {
       new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1)
     );
 
+    jComboBoxRestaurante.addActionListener(
+      new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+          jComboBoxRestauranteActionPerformed(evt);
+        }
+      }
+    );
+    jPanelCentral.add(
+      jComboBoxRestaurante,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 120, -1)
+    );
+
+    jComboBoxTipoComida.setSelectedItem(tmpIdTipoComida);
+    jComboBoxTipoComida.addActionListener(
+      new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+          jComboBoxTipoComidaActionPerformed(evt);
+        }
+      }
+    );
+    jPanelCentral.add(
+      jComboBoxTipoComida,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 120, -1)
+    );
+
+    jLabelSeleccionRestaurante.setText("SelecccionRestaurante");
+    jPanelCentral.add(
+      jLabelSeleccionRestaurante,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, -1, -1)
+    );
+
+    jLabelSeleccionTipoComida.setText("SeleccionTipoComida");
+    jPanelCentral.add(
+      jLabelSeleccionTipoComida,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, -1, -1)
+    );
+
     getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
 
     pack();
@@ -257,12 +296,11 @@ public class vtnActualizarComida extends javax.swing.JFrame {
     // Se capturan los datos desde los campos de texto del formulario
     nombre = jTextFieldNombre.getText();
     codigo = jTextFieldCodigo.getText();
-    restaurante = jTextFieldRestaurante.getText();
-    tipoComida = jTextFieldTipoComida.getText();
+    tipoComida = jComboBoxTipoComida.getSelectedItem().toString();
+    restaurante = jComboBoxRestaurante.getSelectedItem().toString();
     cantidadIngredientes =
       Integer.parseInt(jTextFieldCantidadIngredientes.getText());
     precio = Float.parseFloat(jTextFieldPrecio.getText());
-
     Comida objComida = new Comida(
       1,
       restaurante,
@@ -287,26 +325,61 @@ public class vtnActualizarComida extends javax.swing.JFrame {
       );
       System.out.println(objComidaCreado);
       limpiarCampos();
+      this.dispose();
     }
   } //GEN-LAST:event_jButtonActualizarActionPerformed
+
+  private void jComboBoxRestauranteActionPerformed(
+    java.awt.event.ActionEvent evt
+  ) { //GEN-FIRST:event_jComboBoxRestauranteActionPerformed
+    // captura el elemento seleccionado en el combo box
+    String restaurante = jComboBoxRestaurante.getSelectedItem().toString();
+
+    // Se busca en la lista de restaurantes el nombre del restaurante
+    this.listRestaurante.forEach((Restaurante objRestaurante) -> {
+        if (
+          objRestaurante.getIdRestaurante() == Integer.parseInt(restaurante)
+        ) {
+          jLabelSeleccionRestaurante.setText(objRestaurante.getNombre());
+        }
+      });
+  } //GEN-LAST:event_jComboBoxRestauranteActionPerformed
+
+  private void jComboBoxTipoComidaActionPerformed(
+    java.awt.event.ActionEvent evt
+  ) { //GEN-FIRST:event_jComboBoxTipoComidaActionPerformed
+    // captura el elemento seleccionado en el combo box
+    String tipoComida = jComboBoxTipoComida.getSelectedItem().toString();
+
+    // Se busca en la lista de comida el nombre del tipo de comida
+    this.listTipoComida.forEach((TipoComida objTipoComida) -> {
+        if (objTipoComida.getIdTipoComida() == Integer.parseInt(tipoComida)) {
+          jLabelSeleccionTipoComida.setText(objTipoComida.getNombre());
+        }
+      });
+  } //GEN-LAST:event_jComboBoxTipoComidaActionPerformed
 
   public void limpiarCampos() {
     jTextFieldNombre.setText("");
     jTextFieldCodigo.setText("");
-    jTextFieldRestaurante.setText("");
-    jTextFieldTipoComida.setText("");
+    jComboBoxTipoComida.setSelectedIndex(0);
+    jComboBoxRestaurante.setSelectedIndex(0);
     jTextFieldCantidadIngredientes.setText("");
     jTextFieldPrecio.setText("");
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButtonActualizar;
+  private javax.swing.JComboBox<String> jComboBoxRestaurante;
+  private javax.swing.JComboBox<String> jComboBoxTipoComida;
   private javax.swing.JLabel jLabelAuthor;
   private javax.swing.JLabel jLabelCantidadIngredientes;
   private javax.swing.JLabel jLabelCodigo;
   private javax.swing.JLabel jLabelNombre;
   private javax.swing.JLabel jLabelPrecio;
   private javax.swing.JLabel jLabelRestaurante;
+  private javax.swing.JLabel jLabelSeleccionRestaurante;
+  private javax.swing.JLabel jLabelSeleccionTipoComida;
   private javax.swing.JLabel jLabelTipoComida;
   private javax.swing.JLabel jLabelTitleIdComida;
   private javax.swing.JLabel jLabelTitleResultadoIdComida;
@@ -318,22 +391,56 @@ public class vtnActualizarComida extends javax.swing.JFrame {
   private javax.swing.JTextField jTextFieldCodigo;
   private javax.swing.JTextField jTextFieldNombre;
   private javax.swing.JTextField jTextFieldPrecio;
-  private javax.swing.JTextField jTextFieldRestaurante;
-  private javax.swing.JTextField jTextFieldTipoComida;
 
   // End of variables declaration//GEN-END:variables
-
   public void actualizarFormularioComida(Comida objComida) {
     jLabelTitleResultadoIdComida.setText(
       String.valueOf(objComida.getIdComida())
     );
     jTextFieldNombre.setText(objComida.getNombre());
     jTextFieldCodigo.setText(objComida.getCodigo());
-    jTextFieldRestaurante.setText(objComida.getRestaurante());
-    jTextFieldTipoComida.setText(objComida.getTipoComida());
+
+    // Se mapean al select los valores de los restaurantes y tipo de comida
+    this.tmpIdTipoComida = "4";
+    jComboBoxRestaurante.setSelectedItem(objComida.getRestaurante());
+    jComboBoxTipoComida.setSelectedItem(objComida.getTipoComida());
+
     jTextFieldCantidadIngredientes.setText(
       String.valueOf(objComida.getCantidadIngredientes())
     );
     jTextFieldPrecio.setText(String.valueOf(objComida.getPrecio()));
+  }
+
+  public void cargarDatosIniciales() { // Se debe inicializar al llamar la vtn
+    cargarRestaurantes();
+    cargarTipoComidas();
+  }
+
+  // cargar restaurantes
+  public void cargarRestaurantes() {
+    // se consulta la lista de restaurantes
+    this.listRestaurante =
+      (ArrayList<Restaurante>) this.objComidaServices.listarRestaurantes();
+
+    // se recorre la lista de restaurantes y se agregan al combo box
+    for (Restaurante objRestaurante : this.listRestaurante) {
+      jComboBoxRestaurante.addItem(
+        String.valueOf(objRestaurante.getIdRestaurante())
+      );
+    }
+  }
+
+  // cargar tipoComida
+  public void cargarTipoComidas() {
+    // se consulta la lista de tipoComida
+    this.listTipoComida =
+      (ArrayList<TipoComida>) this.objComidaServices.listarTipoComidas();
+
+    // se recorre la lista de tipoComida y se agregan al combo box
+    for (TipoComida objTipoComida : this.listTipoComida) {
+      jComboBoxTipoComida.addItem(
+        String.valueOf(objTipoComida.getIdTipoComida())
+      );
+    }
   }
 }
