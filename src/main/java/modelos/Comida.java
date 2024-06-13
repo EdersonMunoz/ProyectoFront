@@ -1,69 +1,104 @@
-
 package modelos;
 
-import java.io.Serializable;
+public class Comida {
 
-public class Comida  implements  Serializable
-{
-   private int codigo;
-   private String nombre;
-   private int tipoComida;
-   private int cantidadIngredientes;
-   private float valor;
+  private Integer idComida;
+  private String restaurante;
+  private String codigo;
+  private String nombre;
+  private String tipoComida;
+  private Integer cantidadIngredientes;
+  private Float precio;
 
-    public Comida(int codigo, String nombre,int tipo, int cantidadIngredientes, float valor) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.tipoComida=tipo;
-        this.cantidadIngredientes = cantidadIngredientes;
-        this.valor = valor;
-    }
+  public Comida(
+    Integer idComida,
+    String restaurante,
+    String codigo,
+    String nombre,
+    String tipoComida,
+    Integer cantidadIngredientes,
+    Float precio
+  ) {
+    this.idComida = idComida;
+    this.restaurante = restaurante;
+    this.codigo = codigo;
+    this.nombre = nombre;
+    this.tipoComida = tipoComida;
+    this.cantidadIngredientes = cantidadIngredientes;
+    this.precio = precio;
+  }
 
-   
+  public Comida() {}
 
-    public String getNombre() {
-        return nombre;
-    }
+  public Comida(
+    String restaurante,
+    String codigo,
+    String nombre,
+    String tipoComida,
+    Integer cantidadIngredientes,
+    Float precio
+  ) {
+    this.restaurante = restaurante;
+    this.codigo = codigo;
+    this.nombre = nombre;
+    this.tipoComida = tipoComida;
+    this.cantidadIngredientes = cantidadIngredientes;
+    this.precio = precio;
+  }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+  public int getIdComida() {
+    return idComida;
+  }
 
+  public void setIdComida(int idComida) {
+    this.idComida = idComida;
+  }
 
-    public int getCantidadIngredientes() {
-        return cantidadIngredientes;
-    }
+  public String getRestaurante() {
+    return restaurante;
+  }
 
-    public void setCantidadIngredientes(int cantidadIngredientes) {
-        this.cantidadIngredientes = cantidadIngredientes;
-    }
+  public void setRestaurante(String restaurante) {
+    this.restaurante = restaurante;
+  }
 
-    public float getValor() {
-        return valor;
-    }
+  public String getCodigo() {
+    return codigo;
+  }
 
-    public void setValor(float valor) {
-        this.valor = valor;
-    }
+  public void setCodigo(String codigo) {
+    this.codigo = codigo;
+  }
 
-    public int getCodigo() {
-        return codigo;
-    }
+  public String getNombre() {
+    return nombre;
+  }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
 
-    public int getTipoComida() {
-        return tipoComida;
-    }
+  public String getTipoComida() {
+    return tipoComida;
+  }
 
-    public void setTipoComida(int tipoComida) {
-        this.tipoComida = tipoComida;
-    }
+  public void setTipoComida(String tipoComida) {
+    this.tipoComida = tipoComida;
+  }
 
-    
-    
+  public int getCantidadIngredientes() {
+    return cantidadIngredientes;
+  }
+
+  public void setCantidadIngredientes(int cantidadIngredientes) {
+    this.cantidadIngredientes = cantidadIngredientes;
+  }
+
+  public float getPrecio() {
+    return precio;
+  }
+
+  public void setPrecio(float precio) {
+    this.precio = precio;
+  }
 }
-
-
