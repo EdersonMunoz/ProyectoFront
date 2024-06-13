@@ -8,15 +8,22 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import modelos.Comida;
+import modelos.Restaurante;
+import modelos.TipoComida;
 import org.glassfish.jersey.jackson.JacksonFeature;
 
 public class ComidaServices {
 
   private String endPoint;
   private Client client;
+  private String endPointRestaurante;
+  private String endpointTipoComida;
 
   public ComidaServices() {
     this.endPoint = "http://localhost:7000/api/comidas";
+    this.endPointRestaurante = "http://localhost:7000/api/restaurantes";
+    this.endpointTipoComida = "http://localhost:7000/api/tipoComida";
+
     client = ClientBuilder.newClient().register(new JacksonFeature());
   }
 
@@ -78,5 +85,27 @@ public class ComidaServices {
     bandera =
       target.request(MediaType.APPLICATION_JSON_TYPE).get(Boolean.class);
     return bandera;
+  }
+
+  // EndPoint para Restaurante
+  public List<Restaurante> listarRestaurantes() {
+    List<Restaurante> listaRestaurantes = null;
+    WebTarget target = client.target(this.endPointRestaurante + "/list");
+    listaRestaurantes =
+      target
+        .request(MediaType.APPLICATION_JSON)
+        .get(new GenericType<List<Restaurante>>() {});
+    return listaRestaurantes;
+  }
+
+  // EndPoint para TipoComida
+  public List<TipoComida> listarTipoComidas() {
+    List<TipoComida> listaTipoComidas = null;
+    WebTarget target = client.target(this.endpointTipoComida + "/list");
+    listaTipoComidas =
+      target
+        .request(MediaType.APPLICATION_JSON)
+        .get(new GenericType<List<TipoComida>>() {});
+    return listaTipoComidas;
   }
 }

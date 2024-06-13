@@ -1,12 +1,14 @@
-D:\GitHub\ProyectoFront\src\main\java\vista\VtnPrincipal.java
 D:\GitHub\ProyectoFront\src\main\java\test\Test.java
-D:\GitHub\ProyectoFront\src\main\java\utilidades\Utilidades.java
 D:\GitHub\ProyectoFront\src\main\java\vista\VtnConsultarComida.java
 D:\GitHub\ProyectoFront\src\main\java\vista\vtnRegistrarComida.java
-D:\GitHub\ProyectoFront\src\main\java\servicios\ComidaServices.java
 D:\GitHub\ProyectoFront\src\main\java\utilidades\CargarImagenes.java
 D:\GitHub\ProyectoFront\src\main\java\vista\vtnActualizarComida.java
+D:\GitHub\ProyectoFront\src\main\java\modelos\Restaurante.java
 D:\GitHub\ProyectoFront\src\main\java\vista\vtnGestionaComidas.java
+D:\GitHub\ProyectoFront\src\main\java\vista\VtnPrincipal.java
+D:\GitHub\ProyectoFront\src\main\java\utilidades\Utilidades.java
+D:\GitHub\ProyectoFront\src\main\java\servicios\ComidaServices.java
+D:\GitHub\ProyectoFront\src\main\java\modelos\TipoComida.java
 D:\GitHub\ProyectoFront\src\main\java\vista\VtnVerEstadisticas.java
 D:\GitHub\ProyectoFront\src\main\java\modelos\Comida.java
 D:\GitHub\ProyectoFront\src\main\java\vista\Render.java

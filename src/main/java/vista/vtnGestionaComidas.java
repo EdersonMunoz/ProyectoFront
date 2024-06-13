@@ -102,7 +102,7 @@ public class vtnGestionaComidas extends javax.swing.JInternalFrame {
         jPanelSuperiorLayout.setHorizontalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSuperiorLayout.createSequentialGroup()
-                .addContainerGap(376, Short.MAX_VALUE)
+                .addContainerGap(567, Short.MAX_VALUE)
                 .addComponent(jLabelGestionarComidas)
                 .addGap(353, 353, 353))
         );
@@ -162,7 +162,7 @@ public class vtnGestionaComidas extends javax.swing.JInternalFrame {
                         .addComponent(jButtonActualizaTabla)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonRegistrarLibro))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelCentralLayout.setVerticalGroup(
@@ -188,6 +188,7 @@ public class vtnGestionaComidas extends javax.swing.JInternalFrame {
         vtnRegistrarComida vtnObjRegistrarComida = new vtnRegistrarComida(
                 this.objComidaServices
         );
+        vtnObjRegistrarComida.cargarDatosIniciales();
         vtnObjRegistrarComida.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         vtnObjRegistrarComida.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarLibroActionPerformed

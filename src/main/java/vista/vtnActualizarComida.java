@@ -52,7 +52,7 @@ public class vtnActualizarComida extends javax.swing.JFrame {
       javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))
     );
 
-    jLabelAuthor.setText("Desarrollado por inform�tica III");
+    jLabelAuthor.setText("Desarrollado por informatica III");
 
     javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(
       jPanelInferior
