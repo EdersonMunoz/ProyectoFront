@@ -1,7 +1,9 @@
 package vista;
 
-import java.util.Date;
+import java.util.ArrayList;
+
 import modelos.Comida;
+import modelos.Restaurante;
 import servicios.ComidaServices;
 import utilidades.Utilidades;
 
@@ -12,9 +14,11 @@ import utilidades.Utilidades;
 public class vtnRegistrarComida extends javax.swing.JFrame {
 
   private final ComidaServices objComidaServices;
+  private final RestauranteServices objRestauranteServices;
 
   public vtnRegistrarComida(ComidaServices objComidaServices) {
     initComponents();
+    cargarDatosIniciales();
     this.objComidaServices = objComidaServices;
   }
 
@@ -35,7 +39,6 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
     jTextFieldNombre = new javax.swing.JTextField();
     jButtonRegistrar = new javax.swing.JButton();
     jTextFieldCodigo = new javax.swing.JTextField();
-    jTextFieldTipoComida = new javax.swing.JTextField();
     jTextFieldRestaurante = new javax.swing.JTextField();
     jTextFieldCantidadIngredientes = new javax.swing.JTextField();
     jTextFieldPrecio = new javax.swing.JTextField();
@@ -44,6 +47,7 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
     jLabelRestaurante = new javax.swing.JLabel();
     jLabelCantidadIngredientes = new javax.swing.JLabel();
     jLabelPrecio = new javax.swing.JLabel();
+    jComboBoxTipoComida = new javax.swing.JComboBox<>();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,7 +55,7 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
       javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))
     );
 
-    jLabelAuthor.setText("Desarrollado por informatica III");
+    jLabelAuthor.setText("Desarrollado por inform�tica III");
 
     javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(
       jPanelInferior
@@ -157,10 +161,6 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
       new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 260, -1)
     );
     jPanelCentral.add(
-      jTextFieldTipoComida,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 260, -1)
-    );
-    jPanelCentral.add(
       jTextFieldRestaurante,
       new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 260, -1)
     );
@@ -175,7 +175,7 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
 
     jLabelCodigo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabelCodigo.setForeground(new java.awt.Color(0, 0, 102));
-    jLabelCodigo.setText("Codigo:");
+    jLabelCodigo.setText("C�digo:");
     jPanelCentral.add(
       jLabelCodigo,
       new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, 20)
@@ -213,6 +213,17 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
       new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1)
     );
 
+    jComboBoxTipoComida.setModel(
+      new javax.swing.DefaultComboBoxModel<>(
+        new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }
+      )
+    );
+
+    jPanelCentral.add(
+      jComboBoxTipoComida,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 260, -1)
+    );
+
     getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
 
     pack();
@@ -227,11 +238,10 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
     nombre = jTextFieldNombre.getText();
     codigo = jTextFieldCodigo.getText();
     restaurante = jTextFieldRestaurante.getText();
-    tipoComida = jTextFieldTipoComida.getText();
+    tipoComida = jComboBoxTipoComida.getSelectedItem().toString();
     cantidadIngredientes =
       Integer.parseInt(jTextFieldCantidadIngredientes.getText());
     precio = Float.parseFloat(jTextFieldPrecio.getText());
-
     Comida objComida = new Comida(
       1,
       restaurante,
@@ -263,13 +273,14 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
     jTextFieldNombre.setText("");
     jTextFieldCodigo.setText("");
     jTextFieldRestaurante.setText("");
-    jTextFieldTipoComida.setText("");
+    jComboBoxTipoComida.setSelectedIndex(0);
     jTextFieldCantidadIngredientes.setText("");
     jTextFieldPrecio.setText("");
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButtonRegistrar;
+  private javax.swing.JComboBox<String> jComboBoxTipoComida;
   private javax.swing.JLabel jLabelAuthor;
   private javax.swing.JLabel jLabelCantidadIngredientes;
   private javax.swing.JLabel jLabelCodigo;
@@ -286,6 +297,20 @@ public class vtnRegistrarComida extends javax.swing.JFrame {
   private javax.swing.JTextField jTextFieldNombre;
   private javax.swing.JTextField jTextFieldPrecio;
   private javax.swing.JTextField jTextFieldRestaurante;
-  private javax.swing.JTextField jTextFieldTipoComida;
+
   // End of variables declaration//GEN-END:variables
+
+  public void cargarDatosIniciales() {
+    // se crea lista de objetos restaurante
+    ArrayList<Restaurante> listRestaurantes = new ArrayList<Restaurante>();
+
+    // se consulta la lista de restaurantes
+    listRestaurantes = this.objComidaServices.consultarRestaurantes();
+
+    jComboBoxTipoComida.removeAllItems();
+    jComboBoxTipoComida.addItem("Desayuno");
+    jComboBoxTipoComida.addItem("Almuerzo");
+    jComboBoxTipoComida.addItem("Cena");
+    jComboBoxTipoComida.addItem("Postre");
+  }
 }
