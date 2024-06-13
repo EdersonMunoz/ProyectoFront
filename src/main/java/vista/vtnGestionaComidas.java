@@ -228,12 +228,12 @@ public class vtnGestionaComidas extends javax.swing.JInternalFrame {
 
     private void editarComida(String codigoComida) {
         Comida objComida = this.objComidaServices.consultarComida(codigoComida);
-        vtnActualizarComida vtnObjActualizarLibro = new vtnActualizarComida(
+        vtnActualizarComida vtnObjActualizarComida = new vtnActualizarComida(
                 this.objComidaServices
         );
-        vtnObjActualizarLibro.actualizarFormularioComida(objComida);
-        vtnObjActualizarLibro.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        vtnObjActualizarLibro.setVisible(true);
+        vtnObjActualizarComida.actualizarFormularioComida(objComida);
+        vtnObjActualizarComida.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        vtnObjActualizarComida.setVisible(true);
     }
 
     private void elimininarComida(String idComida) {

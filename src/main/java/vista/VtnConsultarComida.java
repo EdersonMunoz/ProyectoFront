@@ -9,7 +9,7 @@ import servicios.ComidaServices;
 
 /**
  *
- * @author LENOVO
+ * @author EdersonMunoz
  */
 public class VtnConsultarComida extends javax.swing.JInternalFrame {
 

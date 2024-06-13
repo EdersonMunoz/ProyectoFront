@@ -8,12 +8,12 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author LENOVO
+ * @author EdersonMunoz
  */
 public class CargarImagenes {
-    public ImageIcon CargarImagen(String ruta)
-    {
-        ImageIcon imagen= new javax.swing.ImageIcon(getClass().getResource(ruta));  
-        return imagen;
-    }
+
+  public ImageIcon CargarImagen(String ruta) {
+    ImageIcon imagen = new javax.swing.ImageIcon(getClass().getResource(ruta));
+    return imagen;
+  }
 }

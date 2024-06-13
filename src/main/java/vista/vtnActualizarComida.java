@@ -6,23 +6,15 @@ import utilidades.Utilidades;
 
 /**
  *
- * @author LENOVO
+ * @author EdersonMunoz
  */
 public class vtnActualizarComida extends javax.swing.JFrame {
 
   private final ComidaServices objComidaServices;
-  private Integer idComidaActual;
 
   public vtnActualizarComida(ComidaServices objComidaServices) {
     initComponents();
     this.objComidaServices = objComidaServices;
-  }
-
-  public void actualizarFormularioComida(Comida objComida) {
-    this.jTextFieldIdComida.setText(String.valueOf(objComida.getIdComida()));
-    this.jTextFieldNombre.setText(objComida.getNombre());
-    this.jTextFieldCodigo.setText(objComida.getCodigo());
-    this.jTextFieldRestaurante.setText(objComida.getRestaurante());
   }
 
   /**
@@ -34,19 +26,25 @@ public class vtnActualizarComida extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
     jPanelInferior = new javax.swing.JPanel();
-    jLabelDesarrolladoPor = new javax.swing.JLabel();
+    jLabelAuthor = new javax.swing.JLabel();
     jPanelSuperior = new javax.swing.JPanel();
-    jLabelTituloJForm = new javax.swing.JLabel();
+    jLabelTituloActualizarComida = new javax.swing.JLabel();
+    jLabelTitleIdComida = new javax.swing.JLabel();
+    jLabelTitleResultadoIdComida = new javax.swing.JLabel();
     jPanelCentral = new javax.swing.JPanel();
-    jLabelNombres = new javax.swing.JLabel();
-    jLabelCorreo = new javax.swing.JLabel();
+    jLabelNombre = new javax.swing.JLabel();
     jTextFieldNombre = new javax.swing.JTextField();
-    jLabelApellidos = new javax.swing.JLabel();
-    jTextFieldCodigo = new javax.swing.JTextField();
     jButtonActualizar = new javax.swing.JButton();
+    jTextFieldCodigo = new javax.swing.JTextField();
+    jTextFieldTipoComida = new javax.swing.JTextField();
     jTextFieldRestaurante = new javax.swing.JTextField();
-    jLabelIdComida = new javax.swing.JLabel();
-    jTextFieldIdComida = new javax.swing.JTextField();
+    jTextFieldCantidadIngredientes = new javax.swing.JTextField();
+    jTextFieldPrecio = new javax.swing.JTextField();
+    jLabelCodigo = new javax.swing.JLabel();
+    jLabelTipoComida = new javax.swing.JLabel();
+    jLabelRestaurante = new javax.swing.JLabel();
+    jLabelCantidadIngredientes = new javax.swing.JLabel();
+    jLabelPrecio = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,7 +52,7 @@ public class vtnActualizarComida extends javax.swing.JFrame {
       javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))
     );
 
-    jLabelDesarrolladoPor.setText("Desarrollado por informatica III");
+    jLabelAuthor.setText("Desarrollado por inform�tica III");
 
     javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(
       jPanelInferior
@@ -66,8 +64,8 @@ public class vtnActualizarComida extends javax.swing.JFrame {
         .addGroup(
           jPanelInferiorLayout
             .createSequentialGroup()
-            .addGap(194, 194, 194)
-            .addComponent(jLabelDesarrolladoPor)
+            .addContainerGap(194, Short.MAX_VALUE)
+            .addComponent(jLabelAuthor)
             .addContainerGap(196, Short.MAX_VALUE)
         )
     );
@@ -78,9 +76,9 @@ public class vtnActualizarComida extends javax.swing.JFrame {
           javax.swing.GroupLayout.Alignment.TRAILING,
           jPanelInferiorLayout
             .createSequentialGroup()
-            .addContainerGap(48, Short.MAX_VALUE)
-            .addComponent(jLabelDesarrolladoPor)
-            .addGap(38, 38, 38)
+            .addContainerGap(20, Short.MAX_VALUE)
+            .addComponent(jLabelAuthor)
+            .addGap(20, 20, 20)
         )
     );
 
@@ -90,9 +88,17 @@ public class vtnActualizarComida extends javax.swing.JFrame {
       javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))
     );
 
-    jLabelTituloJForm.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-    jLabelTituloJForm.setForeground(new java.awt.Color(0, 51, 153));
-    jLabelTituloJForm.setText("Actualizar comida");
+    jLabelTituloActualizarComida.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+    jLabelTituloActualizarComida.setForeground(new java.awt.Color(0, 51, 153));
+    jLabelTituloActualizarComida.setText("Actualizar comida");
+
+    jLabelTitleIdComida.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelTitleIdComida.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelTitleIdComida.setText("Id Comida: ");
+
+    jLabelTitleResultadoIdComida.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelTitleResultadoIdComida.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelTitleResultadoIdComida.setText("ResultadoIdComida");
 
     javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(
       jPanelSuperior
@@ -102,12 +108,24 @@ public class vtnActualizarComida extends javax.swing.JFrame {
       jPanelSuperiorLayout
         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(
-          javax.swing.GroupLayout.Alignment.TRAILING,
           jPanelSuperiorLayout
             .createSequentialGroup()
-            .addContainerGap(181, Short.MAX_VALUE)
-            .addComponent(jLabelTituloJForm)
-            .addGap(203, 203, 203)
+            .addGap(190, 190, 190)
+            .addGroup(
+              jPanelSuperiorLayout
+                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(
+                  jPanelSuperiorLayout
+                    .createSequentialGroup()
+                    .addComponent(jLabelTitleIdComida)
+                    .addPreferredGap(
+                      javax.swing.LayoutStyle.ComponentPlacement.UNRELATED
+                    )
+                    .addComponent(jLabelTitleResultadoIdComida)
+                )
+                .addComponent(jLabelTituloActualizarComida)
+            )
+            .addContainerGap(164, Short.MAX_VALUE)
         )
     );
     jPanelSuperiorLayout.setVerticalGroup(
@@ -116,9 +134,16 @@ public class vtnActualizarComida extends javax.swing.JFrame {
         .addGroup(
           jPanelSuperiorLayout
             .createSequentialGroup()
-            .addGap(27, 27, 27)
-            .addComponent(jLabelTituloJForm)
-            .addContainerGap(59, Short.MAX_VALUE)
+            .addGap(12, 12, 12)
+            .addComponent(jLabelTituloActualizarComida)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(
+              jPanelSuperiorLayout
+                .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabelTitleIdComida)
+                .addComponent(jLabelTitleResultadoIdComida)
+            )
+            .addContainerGap(27, Short.MAX_VALUE)
         )
     );
 
@@ -129,42 +154,22 @@ public class vtnActualizarComida extends javax.swing.JFrame {
     );
     jPanelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-    jLabelNombres.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-    jLabelNombres.setForeground(new java.awt.Color(0, 0, 102));
-    jLabelNombres.setText("Nombres:");
+    jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelNombre.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelNombre.setText("Nombre:");
     jPanelCentral.add(
-      jLabelNombres,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1)
-    );
-
-    jLabelCorreo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-    jLabelCorreo.setForeground(new java.awt.Color(0, 0, 102));
-    jLabelCorreo.setText("Correo:");
-    jPanelCentral.add(
-      jLabelCorreo,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1)
+      jLabelNombre,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 31, -1, -1)
     );
     jPanelCentral.add(
       jTextFieldNombre,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 130, -1)
-    );
-
-    jLabelApellidos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-    jLabelApellidos.setForeground(new java.awt.Color(0, 0, 102));
-    jLabelApellidos.setText("Apellidos:");
-    jPanelCentral.add(
-      jLabelApellidos,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1)
-    );
-    jPanelCentral.add(
-      jTextFieldCodigo,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 130, -1)
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 260, -1)
     );
 
     jButtonActualizar.setIcon(
       new javax.swing.ImageIcon(getClass().getResource("/recursos/grabar.png"))
     ); // NOI18N
-    jButtonActualizar.setText("Actualizar");
+    jButtonActualizar.setText("Guardar");
     jButtonActualizar.addActionListener(
       new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,25 +179,67 @@ public class vtnActualizarComida extends javax.swing.JFrame {
     );
     jPanelCentral.add(
       jButtonActualizar,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, -1, -1)
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 160, -1)
+    );
+    jPanelCentral.add(
+      jTextFieldCodigo,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 260, -1)
+    );
+    jPanelCentral.add(
+      jTextFieldTipoComida,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 260, -1)
     );
     jPanelCentral.add(
       jTextFieldRestaurante,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 130, -1)
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 260, -1)
+    );
+    jPanelCentral.add(
+      jTextFieldCantidadIngredientes,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 260, -1)
+    );
+    jPanelCentral.add(
+      jTextFieldPrecio,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 260, -1)
     );
 
-    jLabelIdComida.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-    jLabelIdComida.setForeground(new java.awt.Color(0, 0, 102));
-    jLabelIdComida.setText("Id Comida:");
+    jLabelCodigo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelCodigo.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelCodigo.setText("Codigo:");
     jPanelCentral.add(
-      jLabelIdComida,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1)
+      jLabelCodigo,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, 20)
     );
 
-    jTextFieldIdComida.setEditable(false);
+    jLabelTipoComida.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelTipoComida.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelTipoComida.setText("Tipo de comida:");
     jPanelCentral.add(
-      jTextFieldIdComida,
-      new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 130, -1)
+      jLabelTipoComida,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1)
+    );
+
+    jLabelRestaurante.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelRestaurante.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelRestaurante.setText("Restaurante:");
+    jPanelCentral.add(
+      jLabelRestaurante,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1)
+    );
+
+    jLabelCantidadIngredientes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelCantidadIngredientes.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelCantidadIngredientes.setText("Cantidad de ingredientes:");
+    jPanelCentral.add(
+      jLabelCantidadIngredientes,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1)
+    );
+
+    jLabelPrecio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabelPrecio.setForeground(new java.awt.Color(0, 0, 102));
+    jLabelPrecio.setText("Precio:");
+    jPanelCentral.add(
+      jLabelPrecio,
+      new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1)
     );
 
     getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
@@ -203,24 +250,21 @@ public class vtnActualizarComida extends javax.swing.JFrame {
   private void jButtonActualizarActionPerformed(
     java.awt.event.ActionEvent evt
   ) { //GEN-FIRST:event_jButtonActualizarActionPerformed
-    String nombre, codigo, restaurante, tipoComida;
-    Integer idComida, cantidadIngredientes;
+    String nombre, codigo, tipoComida, restaurante;
+    Integer cantidadIngredientes;
     Float precio = 0.0f;
 
     // Se capturan los datos desde los campos de texto del formulario
-
-    // NOTA: Generar jTextFields para los campos faltantes (Corregir)
-    String idComidaTmp = jTextFieldIdComida.getText();
-    idComida = Integer.parseInt(idComidaTmp);
-    String cantidadIngredientesTmp = jTextFieldIdComida.getText();
-    cantidadIngredientes = Integer.parseInt(cantidadIngredientesTmp);
     nombre = jTextFieldNombre.getText();
     codigo = jTextFieldCodigo.getText();
     restaurante = jTextFieldRestaurante.getText();
-    tipoComida = jTextFieldRestaurante.getText();
+    tipoComida = jTextFieldTipoComida.getText();
+    cantidadIngredientes =
+      Integer.parseInt(jTextFieldCantidadIngredientes.getText());
+    precio = Float.parseFloat(jTextFieldPrecio.getText());
 
     Comida objComida = new Comida(
-      idComida,
+      1,
       restaurante,
       codigo,
       nombre,
@@ -229,35 +273,67 @@ public class vtnActualizarComida extends javax.swing.JFrame {
       precio
     );
 
-    if (this.objComidaServices.consultarSiExisteComida(codigo)) {
+    if (!this.objComidaServices.consultarSiExisteComida(codigo)) {
       Utilidades.mensajeError(
-        "Error, el correo del comida se encuentra registrado",
-        "Error al registrar el comida"
+        "Error, el codigo de la comida no se encuentra registrado",
+        "Error al actualizar la comida"
       );
     } else {
       Comida objComidaCreado =
         this.objComidaServices.actualizarComida(objComida);
       Utilidades.mensajeExito(
-        "Comida actualizado exitosmente",
-        "Comida actualizado"
+        "Comida actualizada exitosmente",
+        "Comida actualizada"
       );
+      System.out.println(objComidaCreado);
+      limpiarCampos();
     }
   } //GEN-LAST:event_jButtonActualizarActionPerformed
 
+  public void limpiarCampos() {
+    jTextFieldNombre.setText("");
+    jTextFieldCodigo.setText("");
+    jTextFieldRestaurante.setText("");
+    jTextFieldTipoComida.setText("");
+    jTextFieldCantidadIngredientes.setText("");
+    jTextFieldPrecio.setText("");
+  }
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButtonActualizar;
-  private javax.swing.JLabel jLabelApellidos;
-  private javax.swing.JLabel jLabelCorreo;
-  private javax.swing.JLabel jLabelDesarrolladoPor;
-  private javax.swing.JLabel jLabelIdComida;
-  private javax.swing.JLabel jLabelNombres;
-  private javax.swing.JLabel jLabelTituloJForm;
+  private javax.swing.JLabel jLabelAuthor;
+  private javax.swing.JLabel jLabelCantidadIngredientes;
+  private javax.swing.JLabel jLabelCodigo;
+  private javax.swing.JLabel jLabelNombre;
+  private javax.swing.JLabel jLabelPrecio;
+  private javax.swing.JLabel jLabelRestaurante;
+  private javax.swing.JLabel jLabelTipoComida;
+  private javax.swing.JLabel jLabelTitleIdComida;
+  private javax.swing.JLabel jLabelTitleResultadoIdComida;
+  private javax.swing.JLabel jLabelTituloActualizarComida;
   private javax.swing.JPanel jPanelCentral;
   private javax.swing.JPanel jPanelInferior;
   private javax.swing.JPanel jPanelSuperior;
+  private javax.swing.JTextField jTextFieldCantidadIngredientes;
   private javax.swing.JTextField jTextFieldCodigo;
-  private javax.swing.JTextField jTextFieldRestaurante;
-  private javax.swing.JTextField jTextFieldIdComida;
   private javax.swing.JTextField jTextFieldNombre;
+  private javax.swing.JTextField jTextFieldPrecio;
+  private javax.swing.JTextField jTextFieldRestaurante;
+  private javax.swing.JTextField jTextFieldTipoComida;
+
   // End of variables declaration//GEN-END:variables
+
+  public void actualizarFormularioComida(Comida objComida) {
+    jLabelTitleResultadoIdComida.setText(
+      String.valueOf(objComida.getIdComida())
+    );
+    jTextFieldNombre.setText(objComida.getNombre());
+    jTextFieldCodigo.setText(objComida.getCodigo());
+    jTextFieldRestaurante.setText(objComida.getRestaurante());
+    jTextFieldTipoComida.setText(objComida.getTipoComida());
+    jTextFieldCantidadIngredientes.setText(
+      String.valueOf(objComida.getCantidadIngredientes())
+    );
+    jTextFieldPrecio.setText(String.valueOf(objComida.getPrecio()));
+  }
 }

@@ -7,7 +7,7 @@ import utilidades.Utilidades;
 
 /**
  *
- * @author LENOVO
+ * @author EdersonMunoz
  */
 public class vtnRegistrarComida extends javax.swing.JFrame {
 
